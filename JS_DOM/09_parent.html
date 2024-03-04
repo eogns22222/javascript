@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM SCRIPT</title>
+        <link rel="icon" href="../img/img01.jpg">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <button id="winOpen">창열기</button>
+        <button id="winClose">창닫기</button>
+        <hr>
+        자식 창에서 받은 값 : <input type="text" id="fromChild"> <br>
+        자식 창으로 보낼 값 : <input type="text" id="toChild"> <br> 
+        <button onclick="sendVal()">보내기</button>
+    </body>
+    <script>
+        var winO = document.getElementById('winOpen');
+        var winC = document.getElementById('winClose');
+        var win;
+
+        winO.addEventListener('click', function(e){
+
+            win = open(
+                '09_child.html', '', 
+                'width=200, height=200, top=0, left=200'
+            );
+        });
+
+        winC.addEventListener('click', function(e){
+
+            win.close();
+        });
+
+        function sendVal(){
+            console.log('send value');
+
+            var fromInput = document.getElementById('toChild').value;
+            console.log(fromInput);
+            win.document.getElementById('fromParent').value = fromInput;
+        }
+        function plus(a, b){
+            console.log('자식이 요청한 값 : ' +  (a + b));
+        }
+    </script>
+</html>

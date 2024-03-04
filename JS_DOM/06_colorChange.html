@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM SCRIPT</title>
+        <link rel="icon" href="../img/img01.jpg">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1 id="txt">글자 색상이 변경 됩니다.</h1>
+        <button id="btn">색상변경</button>
+    </body>
+    <script>
+        // 1. 버튼을 누르면 Text 의 색상이 변한다.
+        // 2. 색상은 “빨,주,노,초,파,남,보” 이다.
+        // 3. 보라색 까지 왔을 때 클릭 하면 다시 빨강색으로 돌아와야 한다.
+
+        var txt = document.getElementById('txt');
+        var btn = document.getElementById('btn');
+        var count = 0;
+        var colorPicker = ['red','orange','yellow','green','blue','navy','purple'];
+        console.log(colorPicker);
+        btn.addEventListener('click', function(){
+            
+            txt.style.color = colorPicker[count];
+            ++count;
+            if(count == 7){
+                count = 0;
+            }
+            
+        });
+
+    </script>
+</html>

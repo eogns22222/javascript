@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JAVA SCRIPT</title>
+        <link rel="stylesheet" href="../img/chrome.png">
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        // 이름 : 토스트기, 반환 : o, 매개변수 : o
+        function 토스트기(빵){ // 매개변수 타입이 없다.
+            return '구워진' + 빵;
+        }
+        // 이름 : 번호표기계, 반환 : o, 매개변수 : x
+        function 번호표기계(){ 
+            return '번호표';
+        }
+        // 이름 : 저금통, 반환 : x, 매개변수 : o
+        var 잔액 = 0;
+        function 저금통(돈){ 
+            잔액 += 돈;
+        }
+        // 이름 : 호출벨, 반환 : x, 매개변수 : x
+        function 호출벨(){  
+            console.log('띵동!');
+            alert('띵동');
+        }
+
+        호출벨();
+    </script>
+</html>

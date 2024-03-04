@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM SCRIPT</title>
+        <link rel="icon" href="../img/img01.jpg">
+        <style>
+            
+            #screen{
+                position: absolute;
+                top: 50px;
+                left: 0px;
+                width: 256px;
+                height: 256px;
+                background: url('../img/sprite.png') 0px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="screen"></div>
+        <button>start</button>
+        <button>stop</button>
+        <button>speedUp</button>
+        <button>speedDown</button>
+    </body>
+    <script>
+        var scr = document.getElementById('screen');
+        var btn = document.getElementsByTagName('button');
+        var inter;
+        var i = 0;
+        var len = 0;
+        var x = 50;
+
+        btn[0].addEventListener('click', function(){
+            inter = setInterval(function(){
+                i -= 256;
+                len += x;
+                scr.style.background = "url('../img/sprite.png') "+ i + "px 0px";
+                scr.style.left = len;
+                if(len >= 1920){
+                    len = -300;
+                }
+            }, 150);
+            btn[0].disabled = true;
+        });
+
+        btn[1].addEventListener('click', function(){
+            clearInterval(inter);
+            btn[0].disabled = false;
+            x = 50;
+            // scr.style.background = "url('../img/sprite.png') 0px 0px";
+        });
+
+        btn[2].addEventListener('click', function(){
+            x += 10;
+        });
+
+        btn[3].addEventListener('click', function(){
+            x -= 10;
+        });
+
+
+    </script>
+</html>

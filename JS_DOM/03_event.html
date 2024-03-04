@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM SCRIPT</title>
+        <link rel="icon" href="../img/img01.jpg">
+        <style>
+            div{
+                width: 250px;
+                height: 250px;
+                background: yellowgreen;
+            }
+        </style>
+    </head>
+    <!-- onload : html 문서가 다 읽히면 발생하는 이벤트 -->
+    <body onload="console.log('loading end');">
+        <!-- 이벤트는 한 요소에 다수개를 적용할 수 있다. -->
+        <div onmouseover="mouseEvt(true)" onmouseout="mouseEvt(false)"></div>
+        <!-- inline 속성을 가지고 있는 영역 태그 -->
+        <h3>오늘의 날짜 : <span id="demo"></span></h3>
+        <input type="button" onclick="getDay()" value="날짜 추출">
+        
+        <input type="text" id="keyon" onkeydown="keyon()">
+        <input type="text" id="keyup" onkeyup="keyup()">
+        <h4 id="typing"></h4>
+
+        <select name="" id="mySelect" onchange="selectOne()">
+            <option value="Audi">Audi</option>
+            <option value="BMW">BMW</option>
+            <option value="Benz">Benz</option>
+            <option value="Volvo">Volvo</option>
+        </select>
+
+
+    </body>
+    <script>
+        
+        var divem = document.getElementsByTagName('div');
+        
+        function mouseEvt(arg){ // 이벤트에서 무언가를 넘겨주면 함수에서 받을 수 잇다.
+            console.log('mouse' + arg);
+            var flag = arg;
+        
+            if(flag){
+                divem[0].style.backgroundColor = 'yellow';
+
+            }else{
+                divem[0].style.backgroundColor = 'red'; 
+
+            }
+
+        }
+
+        var demo = document.getElementById('demo');
+
+        function getDay(){
+            var date = new Date();
+            console.log(date);
+            // id = "demo" 에 날짜 값을 표시 하시오
+            demo.innerHTML = date;
+        }
+
+        
+        function keyon(){ // keydown : 키 입력 자체를 체크 할 경우
+            // 키를 누르면 일단 값을 가져오기 때문에, 아직 입력후 문자화 되어 찍힌 값을 가져오지 못한다.
+            var msg = document.getElementById('keyon').value;
+            document.getElementById('typing').innerHTML = msg;
+        }
+        
+        function keyup(){ // keyup : 입력한 값을 가져올 경우 
+            var msg = document.getElementById('keyup').value;
+            document.getElementById('typing').innerHTML = msg;
+        }
+
+        function selectOne(){
+            var elem = document.getElementById('mySelect');
+            var val = elem.value;
+            console.log(val);
+            document.getElementById('typing').innerHTML = val;
+        }
+
+    </script>
+</html>

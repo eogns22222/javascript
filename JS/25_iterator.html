@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JAVA SCRIPT</title>
+        <link rel="stylesheet" href="../img/chrome.png">
+        <style></style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        var arr = [0,1,2,3,4,5,6,7,8,9];
+
+        // 기본 for 문 - 반복의 시작과 끝을 내가 정할 수 있다.
+        for (var i = 0; i < arr.length; i++) {
+            console.log(i + ":" + arr[i]);
+        }
+        console.log('-----------------------------------');
+
+        // foreach - 한번 시작하면 끝까지 가야 한다.
+        arr.forEach(function(item, idx){ // 개별 값, 해당 인덱스
+            console.log(idx, ':', item);
+        });
+        console.log('-----------------------------------');
+
+        // for of - 몇번째 값을 가져오고 있는지 알 수 없다.
+        for (var n of arr) {
+            console.log(n);
+        }
+
+        var computer = new Object();
+        computer['cpu'] = 'octa core';
+        computer['ram'] = '16GB';
+        computer['ssd'] = '2TB';
+        computer['price'] = 1400000;
+        console.log(computer);
+        console.log(computer.cpu + 'dd');
+        // HashMap 에서 어떻게 값을 하나씩 꺼내 왔는가?
+        // 1. keySet() 을 사용해 map 에서 키 덩어리만 가지고 온다.
+        // 1. 값을 꺼내기 쉽게 쪼갠다.(iterator화)
+        // 2. while 문으로 꺼내올 값이 없을 때까지 꺼낸다.
+        // 3. iter.next() 로 키의 값을 변수에 저장하고 get() 으로 키에 맞는 값을 가져온다.
+
+        // Object.keys(객체) : 객체의 키를 배열 형태로 반환
+        var keys = Object.keys(computer);
+        console.log(keys);
+        for (var key of keys) {
+            // 변수 안의 값을 키로 사용할 수가 없다.
+            // console.log(key + ' : ' + computer.key); // computer 의 key 라는 속성을 찾기 때문에 undefined
+            console.log(key + ' : ' + computer[key]);
+            
+        }
+
+    </script>
+</html>
