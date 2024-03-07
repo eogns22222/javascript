@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            table, th, td{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td{
+                padding: 10px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <table width="100%">
+            <tr>
+                <th>학번</th>
+                <th>이름</th>
+                <th>과목</th>
+                <th>학점</th>
+                <th>설명</th>
+            </tr>
+        </table>
+        학번 : <input type="text" id="no"><br>
+        이름 : <input type="text" id="name"><br>
+        과목 : <input type="text" id="sub"><br>
+        학점 : <input type="text" id="score"><br>
+        설명 : <input type="text" id="desc"><br>
+        <button>등록</button>
+    </body>
+    <script>
+        $('button').click(draw);
+
+        $('#desc').keyup(function(e){
+            if(e.keyCode == 13){
+                draw();
+            }
+        });
+
+        function draw(){
+
+            // var no = $('#no').val();
+            // var name = $('#name').val();
+            // var sub = $('#sub').val();
+            // var score = $('#score').val();
+            // var desc = $('#desc').val();
+
+            // var content = '<tr>';
+            // content += '<td>' + no + '</td>';
+            // content += '<td>' + name + '</td>';
+            // content += '<td>' + sub + '</td>';
+            // content += '<td>' + score + '</td>';
+            // content += '<td>' + desc + '</td>';
+            // content += '</tr>';
+            
+            var content = '<tr>';
+            
+            var $input = $('input[type="text"]');
+            for(var i = 0; i < $input.length; i++){
+                content += '<td>' + $input.eq(i).val() + '</td>';
+            }
+            content += '</tr>';
+            $('table').append(content);
+        }
+
+
+    </script>
+</html>

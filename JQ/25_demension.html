@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            img{
+                width: 400px;
+                height: 300px;
+                padding: 10px;
+                border: 3px solid black;
+                margin: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="../img/demension.png" alt="">
+    </body>
+    <script>
+        // width() : content
+        console.log($('img').width()); // 400px
+        // innerWidth() : content + padding
+        console.log($('img').innerWidth()); // 420px
+        // outerWidth() : content + padding + border
+        console.log($('img').outerWidth()); // 426px
+        // outerWidth(true) : content + padding + border + margin
+        console.log($('img').outerWidth(true)); // 436px
+    </script>
+</html>
