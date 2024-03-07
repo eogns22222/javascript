@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                display: none;
+                width: 150px;
+                height: 150px;
+                margin-top: 10px;
+                background: green;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="viz">fadeIn</button>
+        <button id="inViz">fadeOut</button>
+        <button id="toggle">ON</button>
+        <div></div>
+        <br>
+        <img src="../img/chrome.png" width="150px">
+    </body>
+    <script>
+        $('#viz').click(function(){
+            $('div').fadeIn('fast', fade); // slow|fast
+        });
+
+        $('#inViz').click(function(){
+            $('div').fadeOut('fast', fade);
+        });
+        
+        $('#toggle').click(function(){
+            $('div').fadeToggle('fast', fade);
+        });
+
+        function fade(){
+            if($('div').css('display') == 'none'){
+                $('#toggle').html('ON');
+            }else{
+                $('#toggle').html('OFF');
+            }
+        }
+
+        // 지정한 opacity 만큼 투명해 진다.
+        $('img').hover(function(){
+            $(this).fadeTo('slow', 0.2);
+        }, function(){
+            $(this).fadeTo('slow', 1);
+        });
+
+    </script>
+</html>

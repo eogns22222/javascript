@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/chrome.png">
+        <!--Content Delivery Network 방식-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            .ex{
+                background-color: cadetblue;
+                text-align: center;
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="add">클래스 추가</button>
+        <button id="remove">클래스 삭제</button>
+        <button id="toggle">클래스 토글</button>
+        <div>DIV</div>
+    </body>
+    <script>
+        $('button').on('click', function(){
+            switch($(this).attr('id')){
+                case 'add':
+                    $('div').addClass('ex');
+                    break;
+                case 'remove':
+                    $('div').removeClass('ex');
+                    break;
+                case 'toggle':
+                    $('div').toggleClass('ex');
+                    break;
+            }
+
+            // if($('div').hasClass('ex')){
+            //     $('#toggle').html('클래스 제거');
+            // }else{
+            //     $('#toggle').html('클래스 추가');
+
+            // }
+
+        });
+
+        $('#toggle').click(function(){
+            var sw = $('div').attr('class');
+            if(sw == 'ex'){
+                $(this).html('remove');
+            }else{
+                $(this).html('add');
+            }
+        });
+
+        //addClass('클래스이름')
+        //removeClass('클래스이름')
+        //toggleClass('클래스이름')
+    </script>
+</html>

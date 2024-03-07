@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            .item div{
+                display: inline;
+            }
+
+            div.item{
+                width: 80%;
+                height: 30px;
+                margin-top: 5px;
+                border: 1px solid lightgray;
+                font-size: 13px;
+                padding: 10px 0 0 10px;
+                cursor: pointer;
+            }
+
+            div.cnt{
+                float: right;
+                width: 20px;
+                height: 20px;
+                border: 1px solid lightgray;
+                text-align: center;
+                margin-right: 10px;
+                color: orange;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="item">
+            <div>A 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+        <div class="item">
+            <div>B 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+        <div class="item">
+            <div>C 아이템 구매 수</div>
+            <div class="cnt">0</div>
+        </div>
+    </body>
+    <script>
+        var count = 0;
+
+        $('.item').click(function(){
+            count = $(this).find('.cnt').html();
+            count++;
+            $(this).find('.cnt').html(count);
+        });
+
+        // var val = 0;
+        
+        // $('.item').hover(function(){
+        //     val = $(this).find('.cnt').html();
+        //     $(this).on('click',function(){
+        //         val++;
+        //         $(this).find('.cnt').html(val);
+        //     });
+        // },
+        // function(){
+        //     $(this).off('click');
+        // });
+
+
+    </script>
+</html>

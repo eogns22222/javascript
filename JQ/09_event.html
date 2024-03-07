@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+            div{
+                width: 200px;
+                height: 200px;
+                margin: 10px;
+                text-align: center;
+                float: left;
+            }
+
+            #mousezone{
+                background: green;
+            }
+            #overzone{
+                background: orange;
+            }
+            #login_zone{
+                width: 300px;
+                clear: both;
+                text-align: left;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <p>클릭하면 글자 색상이 바뀝니다</p>
+        <p>클릭하면 글자 색상이 바뀝니다</p>
+        <p>클릭하면 글자 색상이 바뀝니다</p>
+        <p>클릭하면 글자 색상이 바뀝니다</p>
+        <div id="mousezone">마우스 존</div>
+        <div id="overzone">H-OVER ZONE</div>
+        <div id="login_zone">
+            ID : <input type="text">
+            <br>
+            PW : <input type="text">
+        </div>
+    </body>
+    <script>
+        $('p').on('click', function(){
+            $(this).css('color', 'red');
+        });
+
+        $('p').on('dblclick', function(){
+            $(this).css('color', 'black');
+        });
+
+        // $('#mousezone').mouseover(function(){
+        //     $(this).css('background', 'yellow');
+        // });
+
+        // $('#mousezone').mouseleave(function(){
+        //     $(this).css('background', 'green');
+        // });
+        $('#mousezone').on({
+            mouseenter:function(){
+                $(this).css('background', 'yellow');
+            },
+            mouseleave:function(){
+                $(this).css('background', 'purple');
+            },
+            mousedown:function(){
+                $(this).css('background', 'yellowgreen');
+            },
+            mouseup:function(){
+                $(this).css('background', 'gray');
+            },
+        });
+
+        // hover : enter + out
+        $('#overzone').hover(function(){
+            $(this).css('background', 'blue');
+        },function(){
+            $(this).css('background', 'navy');
+        });
+
+        $('#login_zone input').on({
+            focus:function(){
+                $(this).css('background', 'yellow');
+            },
+            blur:function(){
+                $(this).css('background', 'white');
+
+            }
+        });
+
+    </script>
+</html>

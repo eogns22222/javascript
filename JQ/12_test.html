@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>J-QUERY</title>
+        <link rel="icon" href="../img/img02.jpg">
+        <!-- CDN(Content Delivery Network) 방식 -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <p>
+            ID : <input type="text" id="userId">
+            <button>확인</button>
+        </p>
+        <a href="#">링크 이동</a>
+    </body>
+    <script>
+        // 입력한 아이디가 admin 일 경우 gdu.co.kr 로 이동 된다.
+        // 그 외는 google.co.kr 로 이동
+        var val;
+        $('button').click(function(){
+            val = $('input[type="text"]').val();
+            
+            if(val == 'admin'){
+                $('a').attr('href', 'http://gdu.co.kr');
+            }else{
+                $('a').attr('href', 'http://google.co.kr');
+
+            }
+        });
+
+    </script>
+</html>
